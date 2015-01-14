@@ -10,7 +10,25 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "main"}
+                "element": {"#": "main"},
+                "loggedIn": false
+            },
+            "listeners": [
+                {
+                    "type": "loginEvent",
+                    "useCapture": false,
+                    "listener": {"@": "actionEventListener"}
+                }
+            ]
+        },
+        "actionEventListener": {
+            "prototype": "montage/core/event/action-event-listener",
+            "properties": {
+                "action": "handleLogin",
+                "handler": {"@": "owner"}
+            },
+            "_dev": {
+                "isHidden": true
             }
         },
         "default": {
